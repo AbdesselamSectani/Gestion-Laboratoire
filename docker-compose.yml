@@ -25,7 +25,7 @@ services:
       retries: 4
     depends_on:
       discovery-service:
-      condition: service_healthy
+       condition: service_healthy
   chercheur-service:
     build: ./Chercheur-Service
     container_name: chercheur-service
