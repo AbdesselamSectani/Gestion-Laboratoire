@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chercheur-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chercheur-service
+  template:
+    metadata:
+      labels:
+        app: chercheur-service
+    spec:
+      containers:
+        - name: chercheur-container
+          image: chkhonty9/chercheur-service:latest
+          ports:
+            - containerPort: 8082
+          env:
+            - name: DISCOVERY_SERVICE_URL
+              value: "http://discovery-service:8761/eureka"
+            - name: CONFIG_SERVICE_URL
+              value: "http://config-service:9999"

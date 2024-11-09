@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-service
+  template:
+    metadata:
+      labels:
+        app: config-service
+    spec:
+      containers:
+        - name: config-container
+          image: chkhonty9/config-service:latest
+          ports:
+            - containerPort: 9999
+          env:
+            - name: DISCOVERY_SERVICE_URL
+              value: "http://discovery-service:8761/eureka"
