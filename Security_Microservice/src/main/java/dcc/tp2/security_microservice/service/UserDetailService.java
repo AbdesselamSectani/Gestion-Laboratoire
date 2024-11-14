@@ -38,14 +38,16 @@ public class UserDetailService implements UserDetailsService {
 
         if (userType.equals("Enseignant")){
             System.out.println("YES Prof");
-            user_infos = restTemplate.getForObject("http://localhost:8888/ENSEIGNANT-SERVICE/Enseignants/email/"+email,HashMap.class);
+            //user_infos = restTemplate.getForObject("http://localhost:8888/ENSEIGNANT-SERVICE/Enseignants/email/"+email,HashMap.class);
+            user_infos = restTemplate.getForObject("http://gateway-service:8888/ENSEIGNANT-SERVICE/Enseignants/email/"+email,HashMap.class);
             System.out.println("user : " + user_infos);
 
         }
 
         if (userType.equals("Chercheur")){
 
-            user_infos = restTemplate.getForObject("http://localhost:8888/CHERCHEUR-SERVICE/Chercheurs/email/"+email,HashMap.class);
+            //user_infos = restTemplate.getForObject("http://localhost:8888/CHERCHEUR-SERVICE/Chercheurs/email/"+email,HashMap.class);
+            user_infos = restTemplate.getForObject("http://gateway-service:8888/CHERCHEUR-SERVICE/Chercheurs/email/"+email,HashMap.class);
         }
 
 
