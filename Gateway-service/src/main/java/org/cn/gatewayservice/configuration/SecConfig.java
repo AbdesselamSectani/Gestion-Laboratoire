@@ -28,7 +28,7 @@ public class SecConfig {
                         .pathMatchers("/ENSEIGNANT-SERVICE/Enseignants/email/{email}").permitAll()
                         .pathMatchers("/ENSEIGNANT-SERVICE/Enseignants/**").hasAuthority("SCOPE_Enseignant")
                         .pathMatchers("/CHERCHEUR-SERVICE/Chercheurs/email/{email}").permitAll()
-                        .pathMatchers("/CHERCHEUR-SERVICE/Chercheurs/**").hasAuthority("SCOPE_Chercheur")
+                        .pathMatchers("/CHERCHEUR-SERVICE/Chercheurs/**").hasAnyAuthority("SCOPE_Chercheur", "SCOPE_Enseignant")
                         .anyExchange().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt());

@@ -30,6 +30,5 @@ public class Chercheur {
     @Transient
     private Enseignant enseignant;
 
-
-
+    
 }
