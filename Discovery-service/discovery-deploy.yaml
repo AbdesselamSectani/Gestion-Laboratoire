@@ -15,9 +15,10 @@ spec:
       containers:
         - name: discovery-service
           image: chkhonty9/discovery-service
-          imagePullPolicy: IfNotPresent
+          #imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8761
+              hostPort: 8761
           readinessProbe:
             httpGet:
               path: /actuator/health
@@ -37,4 +38,5 @@ spec:
     - protocol: TCP
       port: 8761
       targetPort: 8761
+      nodePort: 31761
   type: LoadBalancer

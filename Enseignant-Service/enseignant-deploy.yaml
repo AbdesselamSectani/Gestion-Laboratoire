@@ -14,10 +14,11 @@ spec:
     spec:
       containers:
         - name: enseignant-service
-          image: chkhonty9/enseignant-service
-          imagePullPolicy: IfNotPresent
+          image: chkhonty9/enseignant-service:latest
+          #imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
+              hostPort: 8081
           env:
             - name: DISCOVERY_SERVICE_URL
               value: http://discovery-service.default.svc.cluster.local:8761/eureka

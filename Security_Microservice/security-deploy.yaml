@@ -14,10 +14,11 @@ spec:
     spec:
       containers:
         - name: security-service
-          image: chkhonty9/security-service
-          imagePullPolicy: IfNotPresent
+          image: chkhonty9/security-service:latest
+          #imagePullPolicy: Always
           ports:
             - containerPort: 8080
+              hostPort: 8080
           readinessProbe:
             httpGet:
               path: /actuator/health

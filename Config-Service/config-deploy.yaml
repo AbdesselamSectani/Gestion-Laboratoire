@@ -15,9 +15,10 @@ spec:
       containers:
         - name: config-service
           image: chkhonty9/config-service
-          imagePullPolicy: IfNotPresent
+          #imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9999
+              hostPort: 9999
           env:
             - name: DISCOVERY_SERVICE_URL
               value: http://discovery-service.default.svc.cluster.local:8761/eureka
@@ -40,4 +41,5 @@ spec:
     - protocol: TCP
       port: 9999
       targetPort: 9999
+      nodePort: 30999
   type: LoadBalancer

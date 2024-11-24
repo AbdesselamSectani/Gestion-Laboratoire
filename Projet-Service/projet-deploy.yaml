@@ -14,10 +14,11 @@ spec:
     spec:
       containers:
         - name: projet-service
-          image: chkhonty9/projet-service
-          imagePullPolicy: IfNotPresent
+          image: chkhonty9/projet-service:latest
+          #imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8083
+              hostPort: 8083
           env:
             - name: DISCOVERY_SERVICE_URL
               value: http://discovery-service.default.svc.cluster.local:8761/eureka

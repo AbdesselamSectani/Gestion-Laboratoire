@@ -15,9 +15,10 @@ spec:
       containers:
         - name: chercheur-service
           image: chkhonty9/chercheur-service
-          imagePullPolicy: IfNotPresent
+          #imagePullPolicy: Always
           ports:
             - containerPort: 8082
+              hostPort: 8082
           env:
             - name: DISCOVERY_SERVICE_URL
               value: http://discovery-service.default.svc.cluster.local:8761/eureka

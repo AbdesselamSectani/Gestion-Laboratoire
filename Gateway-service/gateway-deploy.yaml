@@ -15,9 +15,10 @@ spec:
       containers:
         - name: gateway-service
           image: chkhonty9/gateway-service
-          imagePullPolicy: IfNotPresent
+          #imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888
+              hostPort: 8888
           env:
             - name: DISCOVERY_SERVICE_URL
               value: http://discovery-service.default.svc.cluster.local:8761/eureka
@@ -42,4 +43,5 @@ spec:
     - protocol: TCP
       port: 8888
       targetPort: 8888
+      nodePort: 30888
   type: LoadBalancer
