@@ -19,6 +19,9 @@ spec:
           ports:
             - containerPort: 8080
               hostPort: 8080
+          env:
+            - name: DISCOVERY_SERVICE_URL
+              value: http://discovery-service.default.svc.cluster.local:8761/eureka
           readinessProbe:
             httpGet:
               path: /actuator/health
