@@ -15,7 +15,20 @@ data:
           - targets: ['enseignant-service:8081']
             labels:
               application: 'enseignant Service'
-
+      - job_name: 'chercheur_service'
+        metrics_path: '/actuator/prometheus'
+        scrape_interval: 5s
+        static_configs:
+          - targets: ['chercheur-service:8082']
+            labels:
+              application: 'chercheur Service'
+      - job_name: 'projet_service'
+        metrics_path: '/actuator/prometheus'
+        scrape_interval: 5s
+        static_configs:
+          - targets: ['projet-service:8083']
+            labels:
+              application: 'projet Service'
 
 ---
 apiVersion: apps/v1
