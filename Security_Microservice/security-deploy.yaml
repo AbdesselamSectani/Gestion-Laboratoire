@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: security-service
-          image: chkhonty9/security-service:latest
+          image: chkhonty9/security-service
+          imagePullPolicy: IfNotPresent
           #imagePullPolicy: Always
           ports:
             - containerPort: 8080
